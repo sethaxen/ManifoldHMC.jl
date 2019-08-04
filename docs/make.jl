@@ -2,10 +2,12 @@ using Documenter, ManifoldHMC
 
 makedocs(
     modules = [ManifoldHMC],
-    format = :html,
+    format = Documenter.HTML(prettyurls = false),
     checkdocs = :exports,
-    sitename = "ManifoldHMC.jl",
-    pages = Any["index.md"]
+    sitename = "ManifoldHMC",
+    pages = [
+        "Overview" => "index.md",
+    ]
 )
 
 deploydocs(
