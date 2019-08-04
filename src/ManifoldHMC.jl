@@ -1,0 +1,3 @@
+module ManifoldHMC
+
+end # module
