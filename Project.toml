@@ -4,12 +4,15 @@ authors = ["Seth Axen <seth.axen@gmail.com>"]
 version = "0.1.0"
 
 [deps]
+DynamicHMC = "bbc10e6e-7c05-544b-b16e-64fede858acb"
+LogDensityProblems = "6fdf6af0-433a-55f7-b3ed-c6c6e0b8df7c"
+Manifolds = "1cead3c2-87b3-11e9-0ccd-23c62b72b94e"
+
+[compat]
+julia = "^1"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
 test = ["Test"]
-
-[compat]
-julia = "^1"
