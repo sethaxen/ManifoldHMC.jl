@@ -7,6 +7,7 @@ makedocs(
     sitename = "ManifoldHMC",
     pages = [
         "Overview" => "index.md",
+        "(Co)geodesic Flow" => "flow.md"
     ]
 )
 
