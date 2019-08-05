@@ -4,14 +4,18 @@ authors = ["Seth Axen <seth.axen@gmail.com>"]
 version = "0.1.0"
 
 [deps]
+DiffResults = "163ba53b-c6d8-5494-b064-1a9d43ac40c5"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 DynamicHMC = "bbc10e6e-7c05-544b-b16e-64fede858acb"
+ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
 LogDensityProblems = "6fdf6af0-433a-55f7-b3ed-c6c6e0b8df7c"
 Manifolds = "1cead3c2-87b3-11e9-0ccd-23c62b72b94e"
 Markdown = "d6f4376e-aef5-505a-96c1-9c027394607a"
 SimpleTraits = "699a6c99-e7fa-54fc-8d76-47d257e15c1d"
 
 [extras]
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]

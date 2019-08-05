@@ -34,9 +34,10 @@ function geodesic_flow! end
                                  x₀,
                                  v₀,
                                  t) where {MT;!IsDecoratorManifold{MT}}
-      error("geodesic_flow! not implemented for Manifold $(typeof(M)), input ",
-            "point $(typeof(x₀)), input vector $(typeof(v₀)), time $t,
-            output point $(typeof(x)), and output vector $(typeof(v))")
+      result = DiffResults.DiffResult(x, (v,))
+      result = ForwardDiff.derivative!(result, (x,t)->exp!(M,x,x₀,v₀,t), x, t)
+      copyto!(v, DiffResults.derivative(result))
+      return (x, v)
 end
 
 @traitfn function geodesic_flow!(M::MT,
@@ -54,10 +55,10 @@ end
 Follow the geodesic with initial point $x_0 \in M$ and momentum
 $p_0 \in T_{x_0}^* M$ for time $t$, dragging $p_0$ along.
 """
-function cogeodesic_flow(M, x₀, p₀)
+function cogeodesic_flow(M, x₀, p₀, t)
       x = similar_result(M, cogeodesic_flow, x₀)
       p = similar_result(M, cogeodesic_flow, p₀)
-      cogeodesic_flow!(M, x, p, x₀, p₀)
+      cogeodesic_flow!(M, x, p, x₀, p₀, t)
       return (x, p)
 end
 
@@ -77,8 +78,9 @@ function cogeodesic_flow! end
                                    p₀,
                                    t) where {MT;!IsDecoratorManifold{MT}}
       error("cogeodesic_flow! not implemented for Manifold $(typeof(M)), ",
-            "input point $(typeof(x₀)), input vector $(typeof(p₀)), time $t,",
-            " output point $(typeof(x)), and output vector $(typeof(p))")
+            "input point $(typeof(x₀)), input vector $(typeof(p₀)), time ",
+            "$typeof(t), output point $(typeof(x)), and output vector ",
+            "$(typeof(p))")
 end
 
 @traitfn function cogeodesic_flow!(M::MT,
